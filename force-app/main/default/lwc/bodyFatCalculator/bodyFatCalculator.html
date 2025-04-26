@@ -1,0 +1,80 @@
+<template>
+    <div class="app slds-var-m-around_medium">
+        <div class="box">
+            <h1>Body Fat Calculator</h1>
+
+            <template if:true={result}>
+                <p class="slds-text-heading_medium">Your Body Fat percentage is {result} which is in the {fitnessCategory} {fitnessRange}</p>
+                <button class="slds-button slds-button_neutral slds-button_stretch custom-button 
+                  slds-var-m-bottom_large slds-var-m-top_large" onclick={recalculate}>Re-Calculate</button>
+            </template>
+
+            <template if:false={result}>
+                <form onsubmit={handleSubmit}>
+
+                    <div class="slds-form-element slds-var-m-bottom_medium">
+                        <label class="slds-form-element__label slds-text-title_bold" for="select-01">Gender</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-01" name="gender" onchange={handleChange}>
+                                    <option value="">Please select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-form-element slds-var-m-bottom_medium">
+                        <label class="slds-form-element__label slds-text-title_bold" for="text-input-Age">Age(years)</label>
+                        <div class="slds-form-element__control">
+                            <input class="slds-input" type="number" id="text-input-Age" placeholder="Enter your Age in years"
+                                required name="age" min="0" value={age} onchange={handleChange} />
+                        </div>
+                    </div>
+
+                    <div class="slds-form-element slds-var-m-bottom_medium">
+                        <label class="slds-form-element__label slds-text-title_bold" for="text-input-Height">Height(cm)</label>
+                        <div class="slds-form-element__control">
+                            <input class="slds-input" type="number" id="text-input-Height" placeholder="Enter your height in cm"
+                                required name="height" min="0" value={height} onchange={handleChange} />
+                        </div>
+                    </div>
+
+                    <div class="slds-form-element slds-var-m-bottom_medium">
+                        <label class="slds-form-element__label slds-text-title_bold" for="text-input-Weight">Weight(kg)</label>
+                        <div class="slds-form-element__control">
+                            <input class="slds-input" type="number" id="text-input-Weight" placeholder="Enter your Weight in kg"
+                                required name="weight" min="0" value={weight} onchange={handleChange} />
+                        </div>
+                    </div>
+
+                    <button class="slds-button slds-button_neutral slds-button_stretch custom-button 
+                    slds-var-m-bottom_large">Calculate</button>
+
+                </form>
+            </template>
+
+            <div class="info-wrapper">
+                <h2>Body Fat Percentage</h2>
+
+                <p class="slds-text-heading_medium">Essential fat</p>
+                <h3 class="slds-text-heading_medium slds-var-m-bottom_medium slds-text-color_success">2-5%</h3>
+
+                <p class="slds-text-heading_medium">Athletes</p>
+                <h3 class="slds-text-heading_medium slds-var-m-bottom_medium slds-text-color_success">6-13%</h3>
+
+                <p class="slds-text-heading_medium">Fitness</p>
+                <h3 class="slds-text-heading_medium slds-var-m-bottom_medium slds-text-color_success">14-17%</h3>
+
+                <p class="slds-text-heading_medium">Average</p>
+                <h3 class="slds-text-heading_medium slds-text-color_error slds-var-m-bottom_medium">18-24%</h3>
+
+                <p class="slds-text-heading_medium">Obese</p>
+                <h3 class="slds-text-heading_medium slds-text-color_error slds-var-m-bottom_medium">25% or higher</h3>
+
+            </div>
+        </div>
+    </div>
+</template>
