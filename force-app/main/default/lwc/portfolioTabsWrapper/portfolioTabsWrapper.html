@@ -1,0 +1,43 @@
+<template>
+    <lightning-tabset variant="scoped">
+
+        <lightning-tab label="Summary">
+            <ul class="slds-list_dotted">
+                <li>Basic ordered list</li>
+                <li>List Item</li>
+                <li>List Item</li>
+            </ul>
+        </lightning-tab>
+        
+        <lightning-tab label="Personal Projects">
+
+            <lightning-layout>
+                <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                    <div class="card">
+                        <img src={bmiCalculator} alt="BMI Calculator" style="width:100%">
+                        <button>Add to Cart</button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            
+        </lightning-tab>
+
+        <lightning-tab label="Work Experience">
+            Three Content !
+        </lightning-tab>
+        <lightning-tab label="Skills">
+
+            <h3>Technical Skills</h3>
+            
+        </lightning-tab>
+        <lightning-tab label="Education">
+            Two Content !
+        </lightning-tab>
+        <lightning-tab label="Certifications">
+            Three Content !
+        </lightning-tab>
+        <lightning-tab label="Others">
+            Three Content !
+        </lightning-tab>
+    </lightning-tabset>
+</template>

@@ -1,0 +1,21 @@
+.userDetailsAndStatsWrapper{
+    background: #242c37;
+    padding: 16px;
+}
+
+.headers{
+    color: white;
+    font-weight: 700;
+}
+
+.details{
+    color: #f6c403;
+}
+
+img{
+    height: 100px;
+}
+
+/* .custom-box {
+    background-color: #f4f6f9;
+} */
