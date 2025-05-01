@@ -5,8 +5,16 @@
     text-align: center;
     font-family: arial;
   }
+
+  .card-certs{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
   
-  .card button {
+  .card button,.card-certs button {
     border: none;
     outline: 0;
     padding: 12px;
@@ -15,13 +23,35 @@
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 15px;
   }
   
-  .card button:hover {
+  .card button:hover, .card-certs button:hover {
     opacity: 0.7;
   }
 
-  img{
+  .card img{
     height: 350px;
   }
+
+.mobile-accordion{
+    display: none;
+} 
+
+.skill-header {
+    background: #242c37;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px;
+    margin: 16px 0px;
+}
+
+@media(max-width: 700px){
+    .desktop-tabset{
+        display: none;
+    }
+    .mobile-accordion{
+      display: block;
+  }
+}

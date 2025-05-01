@@ -1,43 +1,300 @@
 <template>
-    <lightning-tabset variant="scoped">
+    <lightning-tabset class="desktop-tabset" variant="scoped">
 
         <lightning-tab label="Summary">
-            <ul class="slds-list_dotted">
-                <li>Basic ordered list</li>
-                <li>List Item</li>
-                <li>List Item</li>
-            </ul>
+            As a Salesforce developer/consultant, I have gained expertise in designing, configuring, and customizing Salesforce solutions to meet specific business needs. With experience of working on projects involving Salesforce implementation, customization, and maintenance, I have a solid understanding of Salesforce best practices and methodologies. My professional interests include staying up-to-date with the latest Salesforce releases and technologies, discovering innovative ways to solve complex business problems, and working collaboratively with cross-functional teams to deliver high-quality solutions. As I move forward in my career, I seek opportunities that will allow me to further hone my technical skills while also leveraging my expertise in Salesforce to drive business success.
         </lightning-tab>
         
         <lightning-tab label="Personal Projects">
 
-            <lightning-layout>
-                <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
-                    <div class="card">
-                        <img src={bmiCalculator} alt="BMI Calculator" style="width:100%">
-                        <button>Add to Cart</button>
-                    </div>
-                </lightning-layout-item>
+            <lightning-layout multiple-rows>
+
+                <template for:each={projects} for:item="project">
+                    <lightning-layout-item key={project.name} size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                        <div class="card">
+                            <a href={project.link}>
+                                <img src={project.image} alt={project.name} style="width:100%">
+                                <button>{project.name}</button>
+                            </a>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+
             </lightning-layout>
             
         </lightning-tab>
 
         <lightning-tab label="Work Experience">
-            Three Content !
+
+            <ul class="slds-timeline">
+                <li>
+                <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                <span class="slds-assistive-text">task</span>
+                <div class="slds-media">
+                <div class="slds-media__figure">
+                <button class="slds-button slds-button_icon" title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this" aria-controls="task-item-expanded-65" aria-expanded="true">
+                <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                </svg>
+                <span class="slds-assistive-text">Toggle details for Review proposals for EBC deck with larger team and have marketing review this</span>
+                </button>
+                <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon" title="task">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
+                </svg>
+                </div>
+                </div>
+                <div class="slds-media__body">
+                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                <h3 class="slds-truncate" title="TCS Digital">
+                <a href="#">
+                <strong>TCS Digital</strong>
+                </a>
+                </h3>
+                </div>
+                <div class="slds-timeline__actions slds-timeline__actions_inline">
+                <p class="slds-timeline__date">July 2021 - Present</p>
+                </div>
+                </div>
+                <p class="slds-m-horizontal_xx-small">
+                Senior Salesforce Developer
+                </p>
+                <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium" id="task-item-expanded-65">
+                <div>
+                    <ul class="slds-list_dotted">
+                        <li>Received the Star of the Month award at TCS for my Excellent Problem-Solving ability</li>
+                        <li>Delivered Salesforce functionalities valued at 8K USD, designing and implementing solutions from scratch to
+                            enhance application quality and efficiency.</li>
+                        <li>Built Lightning Web Components to enhance user interactions and streamline clients’ business processes,
+                            leveraging Lightning Web Components (LWC), JavaScript ES6, HTML, and CSS.</li>
+                        <li>Automated repetitive tasks in Salesforce applications using Apex (synchronous and asynchronous) to improve
+                            business process efficiency and accuracy for end-users.</li>
+                        <li>Collaborated with business stakeholders to collect requirements and convert them into technical specifications.</li>
+                        <li>Achieved 100% SLA compliance and resolved high-severity issues within the specified resolution time frame</li>
+                    </ul>
+                </div>
+                </article>
+                </div>
+                </div>
+                </div>
+                </li>
+            </ul>
+
         </lightning-tab>
+
         <lightning-tab label="Skills">
 
-            <h3>Technical Skills</h3>
+            <h3 class="skill-header">Technical Skills</h3>
+
+            <template for:each={technicalSkillsArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        
+            <h3 class="skill-header">Tools and Software</h3>
+
+            <template for:each={toolsandSoftwareSkillsArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        
+            <h3 class="skill-header">Methodologies</h3>
+
+            <template for:each={methodologiesArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        
+            <h3 class="skill-header">Soft Skills</h3>
+
+            <template for:each={softSkillsArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
             
         </lightning-tab>
+
         <lightning-tab label="Education">
-            Two Content !
+            
+            <div>
+                <lightning-datatable
+                        key-field="Id"
+                        data={data}
+                        hide-checkbox-column
+                        columns={columns}>
+                </lightning-datatable>
+            </div>
+
         </lightning-tab>
         <lightning-tab label="Certifications">
-            Three Content !
-        </lightning-tab>
-        <lightning-tab label="Others">
-            Three Content !
+
+            <lightning-layout multiple-rows>
+
+                <template for:each={certs} for:item="cert">
+                    <lightning-layout-item key={cert.name} class="slds-m-bottom_xx-large" size="12" small-device-size="12" medium-device-size="6" large-device-size="4">
+                        <div class="card-certs">
+                            <a href={cert.link}>
+                                <img src={cert.image} alt={cert.name} style="width:100%">
+                                <button>{cert.name}</button>
+                            </a>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+
+            </lightning-layout>
+
         </lightning-tab>
     </lightning-tabset>
+
+    <lightning-accordion class="mobile-accordion" active-section-name="A">
+
+        <lightning-accordion-section name="A" label="Summary">
+            As a Salesforce developer/consultant, I have gained expertise in designing, configuring, and customizing Salesforce solutions to meet specific business needs. With experience of working on projects involving Salesforce implementation, customization, and maintenance, I have a solid understanding of Salesforce best practices and methodologies. My professional interests include staying up-to-date with the latest Salesforce releases and technologies, discovering innovative ways to solve complex business problems, and working collaboratively with cross-functional teams to deliver high-quality solutions. As I move forward in my career, I seek opportunities that will allow me to further hone my technical skills while also leveraging my expertise in Salesforce to drive business success.
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="B" label="Personal Projects">
+            <lightning-layout multiple-rows>
+
+                <template for:each={projects} for:item="project">
+                    <lightning-layout-item key={project.name} size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                        <div class="card">
+                            <a href={project.link}>
+                                <img src={project.image} alt={project.name} style="width:100%">
+                                <button>{project.name}</button>
+                            </a>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="C" label="Work Experience">
+            <ul class="slds-timeline">
+                <li>
+                <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                <span class="slds-assistive-text">task</span>
+                <div class="slds-media">
+                <div class="slds-media__figure">
+                <button class="slds-button slds-button_icon" title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this" aria-controls="task-item-expanded-65" aria-expanded="true">
+                <svg class="slds-button__icon slds-timeline__details-action-icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                </svg>
+                <span class="slds-assistive-text">Toggle details for Review proposals for EBC deck with larger team and have marketing review this</span>
+                </button>
+                <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon" title="task">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
+                </svg>
+                </div>
+                </div>
+                <div class="slds-media__body">
+                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                <h3 class="slds-truncate" title="TCS Digital">
+                <a href="#">
+                <strong>TCS Digital</strong>
+                </a>
+                </h3>
+                </div>
+                <div class="slds-timeline__actions slds-timeline__actions_inline">
+                <p class="slds-timeline__date">July 2021 - Present</p>
+                </div>
+                </div>
+                <p class="slds-m-horizontal_xx-small">
+                Senior Salesforce Developer
+                </p>
+                <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium">
+                <div>
+                    <ul class="slds-list_dotted">
+                        <li>Received the Star of the Month award at TCS for my Excellent Problem-Solving ability</li>
+                        <li>Delivered Salesforce functionalities valued at 8K USD, designing and implementing solutions from scratch to
+                            enhance application quality and efficiency.</li>
+                        <li>Built Lightning Web Components to enhance user interactions and streamline clients’ business processes,
+                            leveraging Lightning Web Components (LWC), JavaScript ES6, HTML, and CSS.</li>
+                        <li>Automated repetitive tasks in Salesforce applications using Apex (synchronous and asynchronous) to improve
+                            business process efficiency and accuracy for end-users.</li>
+                        <li>Collaborated with business stakeholders to collect requirements and convert them into technical specifications.</li>
+                        <li>Achieved 100% SLA compliance and resolved high-severity issues within the specified resolution time frame</li>
+                    </ul>
+                </div>
+                </article>
+                </div>
+                </div>
+                </div>
+                </li>
+            </ul>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="D" label="Skills">
+            <h3>Technical Skills</h3>
+
+            <template for:each={technicalSkillsArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        
+            <h3>Tools and Software</h3>
+
+            <template for:each={toolsandSoftwareSkillsArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        
+            <h3>Methodologies</h3>
+
+            <template for:each={methodologiesArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        
+            <h3>Soft Skills</h3>
+
+            <template for:each={softSkillsArray} for:item="Skill">
+
+                <lightning-badge key={Skill} label={Skill} class="slds-badge_inverse"></lightning-badge>
+
+            </template>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="E" label="Education">
+            <div>
+                <lightning-datatable
+                        key-field="Id"
+                        data={data}
+                        hide-checkbox-column
+                        columns={columns}>
+                </lightning-datatable>
+            </div>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="F" label="Certifications">
+
+            <lightning-layout multiple-rows>
+
+                <template for:each={certs} for:item="cert">
+                    <lightning-layout-item key={cert.name} class="slds-m-bottom_xx-large" size="12" small-device-size="12" medium-device-size="6" large-device-size="4">
+                        <div class="card-certs">
+                            <a href={cert.link}>
+                                <img src={cert.image} alt={cert.name} style="width:100%">
+                                <button>{cert.name}</button>
+                            </a>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+
+            </lightning-layout>
+            
+        </lightning-accordion-section>
+
+    </lightning-accordion>
+
 </template>

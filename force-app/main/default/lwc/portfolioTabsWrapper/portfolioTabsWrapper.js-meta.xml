@@ -7,4 +7,12 @@
         <target>lightningCommunity__Page</target>
         <target>lightningCommunity__Default</target>
     </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="techSkills" label="Technical Skills" type="String" />
+            <property name="toolsandSoftwareSkills" label="Tools and Software" type="String" />
+            <property name="methodologies" label="Methodologies" type="String" />
+            <property name="softSkills" label="Soft Skills" type="String" />
+        </targetConfig>
+    </targetConfigs>
 </LightningComponentBundle>
