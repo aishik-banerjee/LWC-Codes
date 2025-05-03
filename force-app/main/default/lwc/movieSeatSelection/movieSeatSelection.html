@@ -1,0 +1,52 @@
+<template>
+    <div class="page">
+  
+        <!-- Section 1 -->
+
+      <div class="container">
+
+        <template for:each={seatsLayout} for:item="row">
+            <div class="row" key={row.rowIndex}>
+              <template for:each={row.rows} for:item="seat">
+                <div
+                  key={seat.seatIndex}
+                  class={seat.class}
+                  data-row={rowIndex}
+                  data-seat={seatIndex}
+                  onclick={handleSeatClick}
+                ></div>
+              </template>
+            </div>
+        </template>
+  
+        <div class="viewingSide">
+        <div class="screen"></div>
+        <p style="font-size: 14px; transform: translateY(-30px);">All eyes this way please</p>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+  
+      <p class="text">
+        You have selected <span>{selectedCount}</span> seats for a price of $<span>{totalPrice}</span>
+      </p>
+
+      <!-- Section 3 -->
+
+      <ul class="showcase">
+        <li>
+          <div class="seat"></div>
+          <small>N/A</small>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <small>Selected</small>
+        </li>
+        <li>
+          <div class="seat occupied"></div>
+          <small>Occupied</small>
+        </li>
+    </ul>
+
+    </div>
+</template>

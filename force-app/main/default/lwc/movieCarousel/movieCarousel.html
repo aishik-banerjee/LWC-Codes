@@ -1,0 +1,19 @@
+<template>
+    <div class="page">
+    <div class="slds-grid slds-gutters slds-grid_align-spread slds-grid_vertical-align-center container ">
+        <template for:each={slidesData} for:item="slide">
+            <div class={slide.cardClass} key={slide.heading}>
+                <span><img src={slide.image} alt={slide.heading} data-movie={slide.heading} onclick={handleClick}></span>
+            </div>
+        </template>
+
+        <a class="prev" onclick={backSlide}>&#10094;</a>
+        <a class="next" onclick={forwardSlide}>&#10095;</a> 
+    </div>
+    <div class="slds-text-align_center slds-p-around_medium">
+        <template for:each={slidesData} for:item="slide">
+            <span class={slide.dotClass} data-id={slide.slideIndex} key={slide.slideIndex} onclick={currentSlide}></span>
+        </template>
+    </div>
+</div>
+</template>
