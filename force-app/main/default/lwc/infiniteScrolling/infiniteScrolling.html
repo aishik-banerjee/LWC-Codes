@@ -1,0 +1,16 @@
+<template>
+    <div class="page">
+        <h1>Infinite Scrolling Demo</h1>
+        <div class="input-search">
+        <input class="slds-input" type="text" placeholder="Search" value={searchText} onkeyup={handleChange}/>
+        </div>
+        <div class="listings">
+            <template for:each={listingArray} for:item="list">
+                <div key={list.id} class="text">
+                    <h2 class="slds-var-m-bottom_medium">{list.id}. {list.title}</h2>
+                    <p>{list.body}</p>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

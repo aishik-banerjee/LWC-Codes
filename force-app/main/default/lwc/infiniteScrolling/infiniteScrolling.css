@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+.page{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: rgb(146, 122, 122);
+        margin: 0;
+        padding-bottom: 100px;
+}
+
+.listings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+h2{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+input{
+    width: 450px;
+    padding: 5px 16px;
+}
+
+.text{
+    background: rgb(235, 148, 33);
+    box-shadow: 0 2px 4px rgba(248, 3, 3, 0.3);
+    border-radius: 3px;
+    padding: 20px;
+    margin: 40px 0;
+    display: flex;
+    width: 80vw;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
