@@ -1,0 +1,72 @@
+<template>
+    <div class="page">
+        <h1>Array Methods Demo</h1>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-3">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <button class="slds-button slds-button_success btn" onclick={handleAddRow}>Add New User</button>
+                    </div>
+                    <div class="slds-col">
+                        <button class="slds-button slds-button_destructive btn" onclick={handleDeleteRow}>Delete</button>
+                    </div>
+                    <div class="slds-col">
+                        <button class="slds-button slds-button_success btn" onclick={handleMap}>Map</button>
+                    </div>
+                    <div class="slds-col">
+                        <button class="slds-button slds-button_success btn" onclick={handleSort}>Sort</button>
+                    </div>
+                    <div class="slds-col">
+                        <button class="slds-button slds-button_success btn" onclick={handleFilter}>Filter</button>
+                    </div>
+                    <div class="slds-col">
+                        <button class="slds-button slds-button_success btn" onclick={handleReduce}>Reduce</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-3">
+
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" checked={allSelected} onchange={handleSelectAll} />
+                                    </th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Age</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={fullList} for:item="list">
+                                    <tr key={list.username}>
+                                        <td>
+                                            <input
+                                                type="checkbox"
+                                                data-id={list.id}
+                                                checked={list.selected}
+                                                onchange={handleRowCheckboxChange}
+                                            />
+                                        </td>
+                                        <td>{list.firstName}</td>
+                                        <td>{list.lastName}</td>
+                                        <td>{list.age}</td>
+                                        <td>{list.phone}</td>
+                                        <td>{list.email}</td>
+                                        <td>{list.username}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total" lwc:if={showTotal}>
+                        <h2>Total Age is {totalAge}</h2>
+                    </div>
+            </div>
+        </div>
+    </div>
+</template>
